@@ -6,7 +6,7 @@ defaults write com.apple.menuextra.battery ShowPercent -string "NO"
 defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
 # Always show scrollbars
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+#defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -28,7 +28,7 @@ defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 # Disable Resume system-wide
-defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+#defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 
 # Fix for the ancient UTF-8 bug in QuickLook (http://mths.be/bbo)
 # Commented out, as this is known to cause problems when saving files in Adobe Illustrator CS5 :(
