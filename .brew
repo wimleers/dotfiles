@@ -1,25 +1,33 @@
-# Make sure we’re using the latest Homebrew
+#!/bin/bash
+
+# Make sure we’re using the latest Homebrew.
 brew update
 
-# Upgrade any already-installed formulae
+# Upgrade any already-installed formulae.
 brew upgrade
 
-# Install wget with IRI support
+# Fundamentals.
+brew install git
+brew install tmux
+
+# CLI.
+brew install ack
+brew install tree
+
+# Web dev.
+brew install webkit2png
 brew install wget --enable-iri
 
-# Install RingoJS and Narwhal
-# Note that the order in which these are installed is important; see http://git.io/brew-narwhal-ringo.
-brew install ringojs
-brew install narwhal
+# Web dev: load testing.
+brew install httperf
+brew install siege
 
-# Install everything else
-brew install ack
-#brew install exiv2
-brew install git
-#brew install imagemagick
-brew install lynx
-brew install node
-brew install rename
-brew install rhino
-brew install tree
-brew install webkit2png
+# Native dev.
+read -p "Do you want to install tools for native development? (y/n) " -n 1
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  brew install zeromq
+  brew install qt
+  brew install pyqt
+fi
+
