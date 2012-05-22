@@ -6,6 +6,8 @@ set wildmenu
 set esckeys
 " Optimize for fast terminal connections
 set ttyfast
+" Let vim also use the OS X' clipboard
+set clipboard=unnamed
 " Add the g flag to search/replace by default
 set gdefault
 " Use UTF-8 without BOM
