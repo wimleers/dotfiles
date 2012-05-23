@@ -5,10 +5,14 @@
 	s = status -s
 	# Diff
 	d = diff --patch-with-stat
+	# Diff staged
+	ds = diff --staged --patch-with-stat
 	# Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
 	# Clone a repository including all submodules
 	c = clone --recursive
+	# Shorthand for "commit"
+	ci = commit
 	# Commit all changes
 	ca = !git add . && git add -u && git commit -a
 	# Switch to a branch, creating it if necessary
