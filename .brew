@@ -16,6 +16,9 @@ brew install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
 brew install ack
 brew install tree
 
+# vim.
+brew install ctags
+
 # Web dev.
 brew install webkit2png
 brew install wget --enable-iri
