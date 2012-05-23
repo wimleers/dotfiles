@@ -14,6 +14,9 @@ alias s="subl ."
 alias o="open"
 alias oo="open ."
 
+# We want a 256-color tmux.
+alias tmux="TERM=screen-256color-bce tmux"
+
 # List all files colorized in long format
 alias l="ls -Gl"
 
