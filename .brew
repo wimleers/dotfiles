@@ -9,6 +9,8 @@ brew upgrade
 # Fundamentals.
 brew install git
 brew install tmux
+# fix clipboard on OS X for tmux
+brew install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
 
 # CLI.
 brew install ack
