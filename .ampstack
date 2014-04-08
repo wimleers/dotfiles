@@ -1,0 +1,23 @@
+# Enable or disable xdebug. Usage: "xdebug on" or "xdebug off".
+function xdebug() {
+  INIFILE=$PHP_INI_SCAN_DIR/ext-xdebug.ini
+  DISABLED_INIFILE=$PHP_INI_SCAN_DIR/ext-xdebug.ini.bak
+
+  if [[ $1 =~ ^on$ ]]; then
+    if [ ! -f $INIFILE ]; then
+      echo "Enabling xdebug…"
+      mv $DISABLED_INIFILE $INIFILE
+      sudo apachectl graceful
+    else
+      echo "xdebug is already enabled."
+    fi
+  else
+    if [ ! -f $DISABLED_INIFILE ]; then
+      echo "Disabling xdebug…"
+      mv $INIFILE $DISABLED_INIFILE
+      sudo apachectl graceful
+    else
+      echo "xdebug is already disabled."
+    fi
+  fi
+}

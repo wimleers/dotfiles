@@ -72,3 +72,6 @@ function codepoint() {
 
 # Include Drupal-specific functions
 source ~/.drupal
+
+# Include Apache/MySQL/PHP stack-specific functions
+source ~/.ampstack
