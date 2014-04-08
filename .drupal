@@ -3,17 +3,13 @@ function isdrupal {
   wget -S $1 2>&1 | grep -q -m 1 "Expires: Sun, 19 Nov 1978 05:00:00 GMT" && echo "Yes" || echo "No"
 }
 
-# Drupal Install
+# Drupal Install. Usage: "di duo", where "duo" is both the site name and the DB name.
 function di () {
-  # Delete the old.
-  cd sites/default;
-  sudo rm -rf files settings.php;
-  sudo mkdir files;
-  sudo cp default.settings.php settings.php;
-  sudo chmod -R 777 files settings.php
-  # Install the new.
-  cd ../..;
+  # Delete the old files directory.
+  sudo rm -rf sites/default/files;
+  sudo mkdir sites/default/files;
+  sudo chmod -R 777 sites/default/files;
+  # site-install now automatically clears out the DB and config.
   drush site-install --db-url=mysql://root:root@localhost/$1 --account-name=root --account-pass=root --site-name=$1 --writable -y;
-  # Announce.
-  say "Drupal site $1 installed!"
+  say "Drupal site '$1' installed!"
 }
