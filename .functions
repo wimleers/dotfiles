@@ -70,7 +70,5 @@ function codepoint() {
 	echo # newline
 }
 
-# Check if a site runs Drupal by looking at the Expires header (set to Dries' birthday).
-function isdrupal {
-	wget -S $1 2>&1 | grep -q -m 1 "Expires: Sun, 19 Nov 1978 05:00:00 GMT" && echo "Yes" || echo "No"
-}
+# Include Drupal-specific functions
+source ~/.drupal
