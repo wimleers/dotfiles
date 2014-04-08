@@ -1,12 +1,18 @@
 [alias]
-	# View the SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph
+	# View the SHA, description, and history graph of the 10 last commits
+	l = log --pretty=oneline -n 10 --graph
+	# Better, prettier log view (including author and relative date)
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	# View the current working tree status using the short format
 	s = status -s
 	# Diff
 	d = diff --patch-with-stat
+	# Diff, inline
+	di = diff --patch-with-stat --color-words
 	# Diff staged
 	ds = diff --staged --patch-with-stat
+	# Diff staged, inline
+	dsi = diff --staged --patch-with-stat --color-words
 	# Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
 	# Clone a repository including all submodules
