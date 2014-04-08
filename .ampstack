@@ -21,3 +21,27 @@ function xdebug() {
     fi
   fi
 }
+
+# Enable or disable PHP >= 5.5's opcache. Usage: "opcache on" or "opcache off".
+function opcache() {
+  INIFILE=$PHP_INI_SCAN_DIR/ext-opcache.ini
+  DISABLED_INIFILE=$PHP_INI_SCAN_DIR/ext-opcache.ini.bak
+
+  if [[ $1 =~ ^on$ ]]; then
+    if [ ! -f $INIFILE ]; then
+      echo "Enabling opcache"
+      mv $DISABLED_INIFILE $INIFILE
+      sudo apachectl graceful
+    else
+      echo "opcache is already enabled."
+    fi
+  else
+    if [ ! -f $DISABLED_INIFILE ]; then
+      echo "Disabling opcache…"
+      mv $INIFILE $DISABLED_INIFILE
+      sudo apachectl graceful
+    else
+      echo "opcache is already disabled."
+    fi
+  fi
+}
