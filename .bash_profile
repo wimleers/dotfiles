@@ -27,3 +27,9 @@ complete -W "NSGlobalDomain" defaults
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Finder Dock Mail Safari iTunes iCal Address\ Book SystemUIServer" killall
+
+# Autocomplete `git checkout [TAB]` branch names.
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
