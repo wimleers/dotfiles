@@ -22,6 +22,30 @@ function xdebug() {
   fi
 }
 
+# Enable or disable xhprof. Usage: "xhprof on" or "xhprof off".
+function xhprof() {
+  INIFILE=$PHP_INI_SCAN_DIR/ext-xhprof.ini
+  DISABLED_INIFILE=$PHP_INI_SCAN_DIR/ext-xhprof.ini.bak
+
+  if [[ $1 =~ ^on$ ]]; then
+    if [ ! -f $INIFILE ]; then
+      echo "Enabling xhprof…"
+      mv $DISABLED_INIFILE $INIFILE
+      sudo apachectl graceful
+    else
+      echo "xhprof is already enabled."
+    fi
+  else
+    if [ ! -f $DISABLED_INIFILE ]; then
+      echo "Disabling xhprof…"
+      mv $INIFILE $DISABLED_INIFILE
+      sudo apachectl graceful
+    else
+      echo "xhprof is already disabled."
+    fi
+  fi
+}
+
 # Enable or disable PHP >= 5.5's opcache. Usage: "opcache on" or "opcache off".
 function opcache() {
   INIFILE=$PHP_INI_SCAN_DIR/ext-opcache.ini
