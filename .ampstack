@@ -53,7 +53,7 @@ function opcache() {
 
   if [[ $1 =~ ^on$ ]]; then
     if [ ! -f $INIFILE ]; then
-      echo "Enabling opcache"
+      echo "Enabling opcache…"
       mv $DISABLED_INIFILE $INIFILE
       sudo apachectl graceful
     else
