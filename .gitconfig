@@ -8,11 +8,11 @@
 	# Diff
 	d = diff --patch-with-stat
 	# Diff, inline
-	di = diff --patch-with-stat --color-words
+	di = diff --patch-with-stat --color-words --word-diff-regex=[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+
 	# Diff staged
 	ds = diff --staged --patch-with-stat
 	# Diff staged, inline
-	dsi = diff --staged --patch-with-stat --color-words
+	dsi = diff --staged --patch-with-stat --color-words --word-diff-regex=[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+
 	# Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
 	# Clone a repository including all submodules
@@ -75,3 +75,9 @@
 	pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
+[rerere]
+	enabled = true
+[push]
+	default = matching
+[rebase]
+	autosquash = true
