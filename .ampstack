@@ -1,3 +1,8 @@
+# Search: https://gist.github.com/mikeyp/8f21c9f5f23d39af7af4
+function search() {
+  ag "$@" | peco | awk -F ':' '{print $1 ":" $2}' | xargs pstorm
+}
+
 # Enable or disable xdebug. Usage: "xdebug on" or "xdebug off".
 function xdebug() {
   INIFILE=$PHP_INI_SCAN_DIR/ext-xdebug.ini
