@@ -5,6 +5,7 @@ function search() {
 
 # Enable or disable xdebug. Usage: "xdebug on" or "xdebug off".
 function xdebug() {
+  PHP_INI_SCAN_DIR=$(php --ini | grep "Scan for additional .ini files in:" | awk '{print $NF}')
   INIFILE=$PHP_INI_SCAN_DIR/ext-xdebug.ini
   DISABLED_INIFILE=$PHP_INI_SCAN_DIR/ext-xdebug.ini.bak
 
@@ -29,6 +30,7 @@ function xdebug() {
 
 # Enable or disable xhprof. Usage: "xhprof on" or "xhprof off".
 function xhprof() {
+  PHP_INI_SCAN_DIR=$(php --ini | grep "Scan for additional .ini files in:" | awk '{print $NF}')
   INIFILE=$PHP_INI_SCAN_DIR/ext-xhprof.ini
   DISABLED_INIFILE=$PHP_INI_SCAN_DIR/ext-xhprof.ini.bak
 
@@ -53,6 +55,7 @@ function xhprof() {
 
 # Enable or disable PHP >= 5.5's opcache. Usage: "opcache on" or "opcache off".
 function opcache() {
+  PHP_INI_SCAN_DIR=$(php --ini | grep "Scan for additional .ini files in:" | awk '{print $NF}')
   INIFILE=$PHP_INI_SCAN_DIR/ext-opcache.ini
   DISABLED_INIFILE=$PHP_INI_SCAN_DIR/ext-opcache.ini.bak
 
@@ -77,6 +80,7 @@ function opcache() {
 
 # Enable or disable APCu. Usage: "apcu on" or "apcu off".
 function apcu() {
+  PHP_INI_SCAN_DIR=$(php --ini | grep "Scan for additional .ini files in:" | awk '{print $NF}')
   INIFILE=$PHP_INI_SCAN_DIR/ext-apcu.ini
   DISABLED_INIFILE=$PHP_INI_SCAN_DIR/ext-apcu.ini.bak
 
@@ -101,6 +105,7 @@ function apcu() {
 
 # Enable or disable Blackfire. Usage: "php_blackfire on" or "php_blackfire off".
 function php_blackfire() {
+  PHP_INI_SCAN_DIR=$(php --ini | grep "Scan for additional .ini files in:" | awk '{print $NF}')
   INIFILE=$PHP_INI_SCAN_DIR/ext-blackfire.ini
   DISABLED_INIFILE=$PHP_INI_SCAN_DIR/ext-blackfire.ini.bak
 
