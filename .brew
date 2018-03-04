@@ -8,4 +8,5 @@ brew upgrade
 
 # Fundamentals.
 brew install git
+brew install mr
 brew install wget --enable-iri
