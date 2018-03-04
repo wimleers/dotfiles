@@ -9,17 +9,3 @@ brew upgrade
 # Fundamentals.
 brew install git
 brew install wget --enable-iri
-
-# Web dev: load testing.
-brew install httperf
-brew install siege
-
-# Native dev.
-read -p "Do you want to install tools for native development? (y/n) " -n 1
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  brew install zeromq
-  brew install qt
-  brew install pyqt
-fi
-
