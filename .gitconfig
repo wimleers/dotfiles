@@ -81,3 +81,5 @@
 	default = matching
 [rebase]
 	autosquash = true
+[interactive]
+	singleKey = yes
