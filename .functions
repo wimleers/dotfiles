@@ -11,10 +11,6 @@ if [ $? -eq 0 ]; then
 	}
 fi
 
-# Create a data URL from an image (works for other file types too, if you tweak the Content-Type afterwards)
-dataurl() {
-	echo "data:image/${1##*.};base64,$(openssl base64 -in "$1")" | tr -d '\n'
-}
 
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
@@ -25,30 +21,8 @@ function server() {
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
 
-# Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
-# Send a fake UA string for sites that sniff it instead of using the Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
-function httpcompression() {
-	encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
-}
-
-# Gzip-enabled `curl`
-function gurl() {
-	curl -sH "Accept-Encoding: gzip" "$@" | gunzip
-}
-
-# Syntax-highlight JSON strings or files
-function json() {
-	if [ -p /dev/stdin ]; then
-		# piping, e.g. `echo '{"foo":42}' | json`
-		python -mjson.tool | pygmentize -l javascript
-	else
-		# e.g. `json '{"foo":42}'`
-		python -mjson.tool <<< "$*" | pygmentize -l javascript
-	fi
-}
-
-# All the dig info
-function digga() {
+# All the DNS info
+function dns() {
 	dig +nocmd "$1" any +multiline +noall +answer
 }
 
