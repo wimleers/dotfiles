@@ -29,6 +29,8 @@
 	commend = commit --amend --no-edit
 	# What happened in the last day?
 	today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  # What are my aliases?
+  aliases = config -l | grep alias | cut -c 7-
 
 [apply]
 	# Detect whitespace errors when applying a patch
