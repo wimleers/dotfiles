@@ -45,7 +45,14 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   brew install php71-opcache
   brew install php71-apcu
   brew install php71-xdebug
+  brew unlink php71
+  # PHP 7.2.
+  brew install php72 --with-apache
+  brew install php72-opcache
+  brew install php72-apcu
+  brew install php72-xdebug
   # MySQL.
   brew install mariadb
   mysql_install_db
+  # @todo Install `sphp`: https://gist.github.com/w00fz/142b6b19750ea6979137b963df959d11
 fi
