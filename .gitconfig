@@ -25,6 +25,10 @@
 	go = checkout -B
 	# Undo a `git push`
 	undopush = push -f origin HEAD^:master
+	# Amend last commit without editing message: add staged changes to last commit.
+	commend = commit --amend --no-edit
+	# What happened in the last day?
+	today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
 
 [apply]
 	# Detect whitespace errors when applying a patch
