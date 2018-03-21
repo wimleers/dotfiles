@@ -10,6 +10,7 @@ brew upgrade
 brew install git
 brew install mr
 brew install wget --enable-iri
+brew install httpie
 
 # Drupal core development.
 read -p "Do you want to install tools for Drupal development? (y/n) " -n 1
