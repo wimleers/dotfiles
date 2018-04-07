@@ -1,10 +1,6 @@
 # Always show scrollbars
 #defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
-# Expand save panel by default
-#defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-#defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
-
 # Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
@@ -21,25 +17,11 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
-# Allow quitting Finder via ⌘ + Q; doing so will also hide desktop icons
-#defaults write com.apple.finder QuitMenuItem -bool true
-
 # Show all filename extensions in Finder
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
-# Remove the auto-hiding Dock delay
-#defaults write com.apple.Dock autohide-delay -float 0
-# Remove the animation when hiding/showing the Dock
-#defaults write com.apple.dock autohide-time-modifier -float 0
-
-# Automatically hide and show the Dock
-#defaults write com.apple.dock autohide -bool true
-
-# Make Dock icons of hidden applications translucent
-#defaults write com.apple.dock showhidden -bool true
 
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
