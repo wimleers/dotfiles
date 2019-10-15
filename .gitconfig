@@ -89,3 +89,5 @@
 	autosquash = true
 [interactive]
 	singleKey = yes
+[diff]
+	noprefix = true
